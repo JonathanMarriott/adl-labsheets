@@ -11,5 +11,5 @@
 
 module load languages/anaconda3/2021-3.8.8-cuda-11.1-pytorch
 echo "Start"
-python train_mnist.py
+python3 train_fully_connected.py
 echo "Done"
