@@ -4,7 +4,7 @@ from torch import nn
 from torch.nn import functional as F
 from typing import Callable
 from sklearn import datasets
-from sklearn.model_selection import train_test_split
+
 
 device = torch.device('cuda')
 
@@ -35,7 +35,8 @@ class MLP(nn.Module):
 
         super().__init__()
         self.l1 = nn.Linear(input_size, hidden_layer_size)
-        self.l2 = nn.Linear(hidden_layer_size, output_size)
+        self.l2 = nn.Linear(hidden_layer_size, hidden_layer_size)
+        self.l3 = nn.Linear(hidden_layer_size, output_size)
         self.activation_fn = activation_fn
         
     def forward(self, inputs):
